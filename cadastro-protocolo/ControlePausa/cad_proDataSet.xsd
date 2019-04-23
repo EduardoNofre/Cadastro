@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="cad_proDataSet" targetNamespace="http://tempuri.org/cad_proDataSet.xsd" xmlns:mstns="http://tempuri.org/cad_proDataSet.xsd" xmlns="http://tempuri.org/cad_proDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="cad_proConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="cad_proConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CadastroProtocolo.Properties.Settings.GlobalReference.Default.cad_proConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_caixaTableAdapter" GeneratorDataComponentClassName="tb_caixaTableAdapter" Name="tb_caixa" UserDataComponentName="tb_caixaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectName="cad_pro_SEFAZ.dbo.tb_caixa" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        a.idcaixa, a.dscaixa, a.idpallet, a.idstatus, b.idpallet AS Expr1
+FROM            tb_caixa AS a INNER JOIN
+                         tb_pallet AS b ON a.idpallet = b.idpallet</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idcaixa" DataSetColumn="idcaixa" />
+              <Mapping SourceColumn="dscaixa" DataSetColumn="dscaixa" />
+              <Mapping SourceColumn="idpallet" DataSetColumn="idpallet" />
+              <Mapping SourceColumn="idstatus" DataSetColumn="idstatus" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_documentoTableAdapter" GeneratorDataComponentClassName="tb_documentoTableAdapter" Name="tb_documento" UserDataComponentName="tb_documentoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(iddocumento) AS iddocumento
+FROM            tb_documento</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="iddocumento" DataSetColumn="iddocumento" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_indiceTableAdapter" GeneratorDataComponentClassName="tb_indiceTableAdapter" Name="tb_indice" UserDataComponentName="tb_indiceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectName="cad_pro.dbo.tb_indice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[tb_indice] WHERE (([idindice] = @Original_idindice) AND ([nmindice] = @Original_nmindice))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idindice" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idindice" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmindice" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmindice" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[tb_indice] ([nmindice]) VALUES (@nmindice);
+SELECT idindice, nmindice FROM tb_indice WHERE (idindice = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmindice" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmindice" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idindice, nmindice FROM dbo.tb_indice</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[tb_indice] SET [nmindice] = @nmindice WHERE (([idindice] = @Original_idindice) AND ([nmindice] = @Original_nmindice));
+SELECT idindice, nmindice FROM tb_indice WHERE (idindice = @idindice)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmindice" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmindice" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idindice" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idindice" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmindice" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmindice" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idindice" ColumnName="idindice" DataSourceName="cad_pro.dbo.tb_indice" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idindice" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idindice" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idindice" DataSetColumn="idindice" />
+              <Mapping SourceColumn="nmindice" DataSetColumn="Indice" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_projetoTableAdapter" GeneratorDataComponentClassName="tb_projetoTableAdapter" Name="tb_projeto" UserDataComponentName="tb_projetoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectName="cad_pro.dbo.tb_projeto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [tb_projeto] WHERE (([nmprojeto] = @Original_nmprojeto) AND ([idprojeto] = @Original_idprojeto))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmprojeto" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmprojeto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idprojeto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idprojeto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [tb_projeto] ([nmprojeto]) VALUES (@nmprojeto);
+SELECT nmprojeto, idprojeto FROM tb_projeto WHERE (idprojeto = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmprojeto" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmprojeto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT nmprojeto, idprojeto FROM tb_projeto</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [tb_projeto] SET [nmprojeto] = @nmprojeto WHERE (([nmprojeto] = @Original_nmprojeto) AND ([idprojeto] = @Original_idprojeto));
+SELECT nmprojeto, idprojeto FROM tb_projeto WHERE (idprojeto = @idprojeto)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmprojeto" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmprojeto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmprojeto" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmprojeto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idprojeto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idprojeto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idprojeto" ColumnName="idprojeto" DataSourceName="cad_pro.dbo.tb_projeto" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idprojeto" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idprojeto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idprojeto" DataSetColumn="idprojeto" />
+              <Mapping SourceColumn="nmprojeto" DataSetColumn="nmprojeto" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_statusTableAdapter" GeneratorDataComponentClassName="tb_statusTableAdapter" Name="tb_status" UserDataComponentName="tb_statusTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectName="cad_pro.dbo.tb_status" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[tb_status] WHERE (([idstatus] = @Original_idstatus) AND ([nmstatus] = @Original_nmstatus))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idstatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idstatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmstatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmstatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[tb_status] ([nmstatus]) VALUES (@nmstatus);
+SELECT idstatus, nmstatus FROM tb_status WHERE (idstatus = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmstatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmstatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idstatus, nmstatus FROM dbo.tb_status</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[tb_status] SET [nmstatus] = @nmstatus WHERE (([idstatus] = @Original_idstatus) AND ([nmstatus] = @Original_nmstatus));
+SELECT idstatus, nmstatus FROM tb_status WHERE (idstatus = @idstatus)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmstatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmstatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idstatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idstatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmstatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmstatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idstatus" ColumnName="idstatus" DataSourceName="cad_pro.dbo.tb_status" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idstatus" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idstatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idstatus" DataSetColumn="idstatus" />
+              <Mapping SourceColumn="nmstatus" DataSetColumn="nmstatus" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_tipo_documentoTableAdapter" GeneratorDataComponentClassName="tb_tipo_documentoTableAdapter" Name="tb_tipo_documento" UserDataComponentName="tb_tipo_documentoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectName="cad_pro.dbo.tb_tipo_documento" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[tb_tipo_documento] WHERE (([idtipodocumento] = @Original_idtipodocumento) AND ([idcaixa] = @Original_idcaixa) AND ([idtipoprocesso] = @Original_idtipoprocesso) AND ([nmtipodocumento] = @Original_nmtipodocumento))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idtipodocumento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idtipodocumento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idcaixa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idcaixa" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idtipoprocesso" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmtipodocumento" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmtipodocumento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[tb_tipo_documento] ([idcaixa], [idtipoprocesso], [nmtipodocumento]) VALUES (@idcaixa, @idtipoprocesso, @nmtipodocumento);
+SELECT idtipodocumento, idcaixa, idtipoprocesso, nmtipodocumento FROM tb_tipo_documento WHERE (idtipodocumento = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idcaixa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idcaixa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idtipoprocesso" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmtipodocumento" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmtipodocumento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idtipodocumento, idcaixa, idtipoprocesso, nmtipodocumento FROM dbo.tb_tipo_documento</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[tb_tipo_documento] SET [idcaixa] = @idcaixa, [idtipoprocesso] = @idtipoprocesso, [nmtipodocumento] = @nmtipodocumento WHERE (([idtipodocumento] = @Original_idtipodocumento) AND ([idcaixa] = @Original_idcaixa) AND ([idtipoprocesso] = @Original_idtipoprocesso) AND ([nmtipodocumento] = @Original_nmtipodocumento));
+SELECT idtipodocumento, idcaixa, idtipoprocesso, nmtipodocumento FROM tb_tipo_documento WHERE (idtipodocumento = @idtipodocumento)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idcaixa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idcaixa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idtipoprocesso" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmtipodocumento" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmtipodocumento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idtipodocumento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idtipodocumento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idcaixa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idcaixa" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idtipoprocesso" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmtipodocumento" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmtipodocumento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idtipodocumento" ColumnName="idtipodocumento" DataSourceName="cad_pro.dbo.tb_tipo_documento" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idtipodocumento" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idtipodocumento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idtipodocumento" DataSetColumn="idtipodocumento" />
+              <Mapping SourceColumn="idcaixa" DataSetColumn="idcaixa" />
+              <Mapping SourceColumn="idtipoprocesso" DataSetColumn="idtipoprocesso" />
+              <Mapping SourceColumn="nmtipodocumento" DataSetColumn="nmtipodocumento" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_tipo_processoTableAdapter" GeneratorDataComponentClassName="tb_tipo_processoTableAdapter" Name="tb_tipo_processo" UserDataComponentName="tb_tipo_processoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectName="cad_pro.dbo.tb_tipo_processo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[tb_tipo_processo] WHERE (([idtipoprocesso] = @Original_idtipoprocesso) AND ([nmtipoprocesso] = @Original_nmtipoprocesso) AND ([idcaixa] = @Original_idcaixa))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idtipoprocesso" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmtipoprocesso" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idcaixa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idcaixa" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[tb_tipo_processo] ([nmtipoprocesso], [idcaixa]) VALUES (@nmtipoprocesso, @idcaixa);
+SELECT idtipoprocesso, nmtipoprocesso, idcaixa FROM tb_tipo_processo WHERE (idtipoprocesso = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmtipoprocesso" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idcaixa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idcaixa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idtipoprocesso, nmtipoprocesso, idcaixa FROM dbo.tb_tipo_processo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[tb_tipo_processo] SET [nmtipoprocesso] = @nmtipoprocesso, [idcaixa] = @idcaixa WHERE (([idtipoprocesso] = @Original_idtipoprocesso) AND ([nmtipoprocesso] = @Original_nmtipoprocesso) AND ([idcaixa] = @Original_idcaixa));
+SELECT idtipoprocesso, nmtipoprocesso, idcaixa FROM tb_tipo_processo WHERE (idtipoprocesso = @idtipoprocesso)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmtipoprocesso" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idcaixa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idcaixa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idtipoprocesso" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_nmtipoprocesso" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idcaixa" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idcaixa" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idtipoprocesso" ColumnName="idtipoprocesso" DataSourceName="cad_pro.dbo.tb_tipo_processo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idtipoprocesso" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idtipoprocesso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idtipoprocesso" DataSetColumn="idtipoprocesso" />
+              <Mapping SourceColumn="nmtipoprocesso" DataSetColumn="nmtipoprocesso" />
+              <Mapping SourceColumn="idcaixa" DataSetColumn="idcaixa" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_usuarioTableAdapter" GeneratorDataComponentClassName="tb_usuarioTableAdapter" Name="tb_usuario" UserDataComponentName="tb_usuarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectName="cad_pro.dbo.tb_usuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[tb_usuario] ([NmLogin], [Nome], [Senha], [Matricula], [Cargo], [Turno], [Utilizacao], [CaminhoImagem]) VALUES (@NmLogin, @Nome, @Senha, @Matricula, @Cargo, @Turno, @Utilizacao, @CaminhoImagem)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NmLogin" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NmLogin" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Senha" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Senha" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Matricula" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Matricula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Cargo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Cargo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Turno" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Turno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Utilizacao" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Utilizacao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CaminhoImagem" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CaminhoImagem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdUsuario, NmLogin, Nome, Senha, Matricula, Cargo, Turno, Utilizacao, CaminhoImagem FROM dbo.tb_usuario</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdUsuario" DataSetColumn="IdUsuario" />
+              <Mapping SourceColumn="NmLogin" DataSetColumn="NmLogin" />
+              <Mapping SourceColumn="Nome" DataSetColumn="Nome" />
+              <Mapping SourceColumn="Senha" DataSetColumn="Senha" />
+              <Mapping SourceColumn="Matricula" DataSetColumn="Matricula" />
+              <Mapping SourceColumn="Cargo" DataSetColumn="Cargo" />
+              <Mapping SourceColumn="Turno" DataSetColumn="Turno" />
+              <Mapping SourceColumn="Utilizacao" DataSetColumn="Utilizacao" />
+              <Mapping SourceColumn="CaminhoImagem" DataSetColumn="CaminhoImagem" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_valor_indiceTableAdapter" GeneratorDataComponentClassName="tb_valor_indiceTableAdapter" Name="tb_valor_indice" UserDataComponentName="tb_valor_indiceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cad_proConnectionString (Settings)" DbObjectName="cad_pro.dbo.tb_valor_indice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[tb_valor_indice] ([nmvalorindice], [iddocumento], [idindice]) VALUES (@nmvalorindice, @iddocumento, @idindice)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nmvalorindice" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="nmvalorindice" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@iddocumento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iddocumento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idindice" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idindice" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idvalorindice, nmvalorindice, iddocumento, idindice FROM dbo.tb_valor_indice</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idvalorindice" DataSetColumn="idvalorindice" />
+              <Mapping SourceColumn="nmvalorindice" DataSetColumn="nmvalorindice" />
+              <Mapping SourceColumn="iddocumento" DataSetColumn="iddocumento" />
+              <Mapping SourceColumn="idindice" DataSetColumn="idindice" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="cad_proDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="cad_proDataSet" msprop:Generator_UserDSName="cad_proDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tb_caixa" msprop:Generator_TableClassName="tb_caixaDataTable" msprop:Generator_TableVarName="tabletb_caixa" msprop:Generator_RowChangedName="tb_caixaRowChanged" msprop:Generator_TablePropName="tb_caixa" msprop:Generator_RowDeletingName="tb_caixaRowDeleting" msprop:Generator_RowChangingName="tb_caixaRowChanging" msprop:Generator_RowEvHandlerName="tb_caixaRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_caixaRowDeleted" msprop:Generator_RowClassName="tb_caixaRow" msprop:Generator_UserTableName="tb_caixa" msprop:Generator_RowEvArgName="tb_caixaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idcaixa" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidcaixa" msprop:Generator_ColumnPropNameInRow="idcaixa" msprop:Generator_ColumnPropNameInTable="idcaixaColumn" msprop:Generator_UserColumnName="idcaixa" type="xs:int" />
+              <xs:element name="dscaixa" msprop:Generator_ColumnVarNameInTable="columndscaixa" msprop:Generator_ColumnPropNameInRow="dscaixa" msprop:Generator_ColumnPropNameInTable="dscaixaColumn" msprop:Generator_UserColumnName="dscaixa">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idpallet" msprop:Generator_ColumnVarNameInTable="columnidpallet" msprop:Generator_ColumnPropNameInRow="idpallet" msprop:Generator_ColumnPropNameInTable="idpalletColumn" msprop:Generator_UserColumnName="idpallet" type="xs:int" />
+              <xs:element name="idstatus" msprop:Generator_ColumnVarNameInTable="columnidstatus" msprop:Generator_ColumnPropNameInRow="idstatus" msprop:Generator_ColumnPropNameInTable="idstatusColumn" msprop:Generator_UserColumnName="idstatus" type="xs:int" />
+              <xs:element name="Expr1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_documento" msprop:Generator_TableClassName="tb_documentoDataTable" msprop:Generator_TableVarName="tabletb_documento" msprop:Generator_RowChangedName="tb_documentoRowChanged" msprop:Generator_TablePropName="tb_documento" msprop:Generator_RowDeletingName="tb_documentoRowDeleting" msprop:Generator_RowChangingName="tb_documentoRowChanging" msprop:Generator_RowEvHandlerName="tb_documentoRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_documentoRowDeleted" msprop:Generator_RowClassName="tb_documentoRow" msprop:Generator_UserTableName="tb_documento" msprop:Generator_RowEvArgName="tb_documentoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="iddocumento" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columniddocumento" msprop:Generator_ColumnPropNameInRow="iddocumento" msprop:Generator_ColumnPropNameInTable="iddocumentoColumn" msprop:Generator_UserColumnName="iddocumento" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_indice" msprop:Generator_TableClassName="tb_indiceDataTable" msprop:Generator_TableVarName="tabletb_indice" msprop:Generator_RowChangedName="tb_indiceRowChanged" msprop:Generator_TablePropName="tb_indice" msprop:Generator_RowDeletingName="tb_indiceRowDeleting" msprop:Generator_RowChangingName="tb_indiceRowChanging" msprop:Generator_RowEvHandlerName="tb_indiceRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_indiceRowDeleted" msprop:Generator_RowClassName="tb_indiceRow" msprop:Generator_UserTableName="tb_indice" msprop:Generator_RowEvArgName="tb_indiceRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idindice" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidindice" msprop:Generator_ColumnPropNameInRow="idindice" msprop:Generator_ColumnPropNameInTable="idindiceColumn" msprop:Generator_UserColumnName="idindice" type="xs:int" />
+              <xs:element name="Indice" msprop:Generator_ColumnVarNameInTable="columnIndice" msprop:Generator_ColumnPropNameInRow="Indice" msprop:Generator_ColumnPropNameInTable="IndiceColumn" msprop:Generator_UserColumnName="Indice">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_projeto" msprop:Generator_TableClassName="tb_projetoDataTable" msprop:Generator_TableVarName="tabletb_projeto" msprop:Generator_RowChangedName="tb_projetoRowChanged" msprop:Generator_TablePropName="tb_projeto" msprop:Generator_RowDeletingName="tb_projetoRowDeleting" msprop:Generator_RowChangingName="tb_projetoRowChanging" msprop:Generator_RowEvHandlerName="tb_projetoRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_projetoRowDeleted" msprop:Generator_RowClassName="tb_projetoRow" msprop:Generator_UserTableName="tb_projeto" msprop:Generator_RowEvArgName="tb_projetoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idprojeto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidprojeto" msprop:Generator_ColumnPropNameInRow="idprojeto" msprop:Generator_ColumnPropNameInTable="idprojetoColumn" msprop:Generator_UserColumnName="idprojeto" type="xs:int" />
+              <xs:element name="nmprojeto" msprop:Generator_ColumnVarNameInTable="columnnmprojeto" msprop:Generator_ColumnPropNameInRow="nmprojeto" msprop:Generator_ColumnPropNameInTable="nmprojetoColumn" msprop:Generator_UserColumnName="nmprojeto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_status" msprop:Generator_TableClassName="tb_statusDataTable" msprop:Generator_TableVarName="tabletb_status" msprop:Generator_RowChangedName="tb_statusRowChanged" msprop:Generator_TablePropName="tb_status" msprop:Generator_RowDeletingName="tb_statusRowDeleting" msprop:Generator_RowChangingName="tb_statusRowChanging" msprop:Generator_RowEvHandlerName="tb_statusRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_statusRowDeleted" msprop:Generator_RowClassName="tb_statusRow" msprop:Generator_UserTableName="tb_status" msprop:Generator_RowEvArgName="tb_statusRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idstatus" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidstatus" msprop:Generator_ColumnPropNameInRow="idstatus" msprop:Generator_ColumnPropNameInTable="idstatusColumn" msprop:Generator_UserColumnName="idstatus" type="xs:int" />
+              <xs:element name="nmstatus" msprop:Generator_ColumnVarNameInTable="columnnmstatus" msprop:Generator_ColumnPropNameInRow="nmstatus" msprop:Generator_ColumnPropNameInTable="nmstatusColumn" msprop:Generator_UserColumnName="nmstatus">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_tipo_documento" msprop:Generator_TableClassName="tb_tipo_documentoDataTable" msprop:Generator_TableVarName="tabletb_tipo_documento" msprop:Generator_RowChangedName="tb_tipo_documentoRowChanged" msprop:Generator_TablePropName="tb_tipo_documento" msprop:Generator_RowDeletingName="tb_tipo_documentoRowDeleting" msprop:Generator_RowChangingName="tb_tipo_documentoRowChanging" msprop:Generator_RowEvHandlerName="tb_tipo_documentoRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_tipo_documentoRowDeleted" msprop:Generator_RowClassName="tb_tipo_documentoRow" msprop:Generator_UserTableName="tb_tipo_documento" msprop:Generator_RowEvArgName="tb_tipo_documentoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idtipodocumento" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidtipodocumento" msprop:Generator_ColumnPropNameInRow="idtipodocumento" msprop:Generator_ColumnPropNameInTable="idtipodocumentoColumn" msprop:Generator_UserColumnName="idtipodocumento" type="xs:int" />
+              <xs:element name="idcaixa" msprop:Generator_ColumnVarNameInTable="columnidcaixa" msprop:Generator_ColumnPropNameInRow="idcaixa" msprop:Generator_ColumnPropNameInTable="idcaixaColumn" msprop:Generator_UserColumnName="idcaixa" type="xs:int" />
+              <xs:element name="idtipoprocesso" msprop:Generator_ColumnVarNameInTable="columnidtipoprocesso" msprop:Generator_ColumnPropNameInRow="idtipoprocesso" msprop:Generator_ColumnPropNameInTable="idtipoprocessoColumn" msprop:Generator_UserColumnName="idtipoprocesso" type="xs:int" />
+              <xs:element name="nmtipodocumento" msprop:Generator_ColumnVarNameInTable="columnnmtipodocumento" msprop:Generator_ColumnPropNameInRow="nmtipodocumento" msprop:Generator_ColumnPropNameInTable="nmtipodocumentoColumn" msprop:Generator_UserColumnName="nmtipodocumento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_tipo_processo" msprop:Generator_TableClassName="tb_tipo_processoDataTable" msprop:Generator_TableVarName="tabletb_tipo_processo" msprop:Generator_RowChangedName="tb_tipo_processoRowChanged" msprop:Generator_TablePropName="tb_tipo_processo" msprop:Generator_RowDeletingName="tb_tipo_processoRowDeleting" msprop:Generator_RowChangingName="tb_tipo_processoRowChanging" msprop:Generator_RowEvHandlerName="tb_tipo_processoRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_tipo_processoRowDeleted" msprop:Generator_RowClassName="tb_tipo_processoRow" msprop:Generator_UserTableName="tb_tipo_processo" msprop:Generator_RowEvArgName="tb_tipo_processoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idtipoprocesso" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidtipoprocesso" msprop:Generator_ColumnPropNameInRow="idtipoprocesso" msprop:Generator_ColumnPropNameInTable="idtipoprocessoColumn" msprop:Generator_UserColumnName="idtipoprocesso" type="xs:int" />
+              <xs:element name="nmtipoprocesso" msprop:Generator_ColumnVarNameInTable="columnnmtipoprocesso" msprop:Generator_ColumnPropNameInRow="nmtipoprocesso" msprop:Generator_ColumnPropNameInTable="nmtipoprocessoColumn" msprop:Generator_UserColumnName="nmtipoprocesso">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idcaixa" msprop:Generator_ColumnVarNameInTable="columnidcaixa" msprop:Generator_ColumnPropNameInRow="idcaixa" msprop:Generator_ColumnPropNameInTable="idcaixaColumn" msprop:Generator_UserColumnName="idcaixa" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_usuario" msprop:Generator_TableClassName="tb_usuarioDataTable" msprop:Generator_TableVarName="tabletb_usuario" msprop:Generator_RowChangedName="tb_usuarioRowChanged" msprop:Generator_TablePropName="tb_usuario" msprop:Generator_RowDeletingName="tb_usuarioRowDeleting" msprop:Generator_RowChangingName="tb_usuarioRowChanging" msprop:Generator_RowEvHandlerName="tb_usuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_usuarioRowDeleted" msprop:Generator_RowClassName="tb_usuarioRow" msprop:Generator_UserTableName="tb_usuario" msprop:Generator_RowEvArgName="tb_usuarioRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdUsuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdUsuario" msprop:Generator_ColumnPropNameInRow="IdUsuario" msprop:Generator_ColumnPropNameInTable="IdUsuarioColumn" msprop:Generator_UserColumnName="IdUsuario" type="xs:int" />
+              <xs:element name="NmLogin" msprop:Generator_ColumnVarNameInTable="columnNmLogin" msprop:Generator_ColumnPropNameInRow="NmLogin" msprop:Generator_ColumnPropNameInTable="NmLoginColumn" msprop:Generator_UserColumnName="NmLogin">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nome" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_UserColumnName="Nome">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Senha" msprop:Generator_ColumnVarNameInTable="columnSenha" msprop:Generator_ColumnPropNameInRow="Senha" msprop:Generator_ColumnPropNameInTable="SenhaColumn" msprop:Generator_UserColumnName="Senha">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Matricula" msprop:Generator_ColumnVarNameInTable="columnMatricula" msprop:Generator_ColumnPropNameInRow="Matricula" msprop:Generator_ColumnPropNameInTable="MatriculaColumn" msprop:Generator_UserColumnName="Matricula" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cargo" msprop:Generator_ColumnVarNameInTable="columnCargo" msprop:Generator_ColumnPropNameInRow="Cargo" msprop:Generator_ColumnPropNameInTable="CargoColumn" msprop:Generator_UserColumnName="Cargo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Turno" msprop:Generator_ColumnVarNameInTable="columnTurno" msprop:Generator_ColumnPropNameInRow="Turno" msprop:Generator_ColumnPropNameInTable="TurnoColumn" msprop:Generator_UserColumnName="Turno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Utilizacao" msprop:Generator_ColumnVarNameInTable="columnUtilizacao" msprop:Generator_ColumnPropNameInRow="Utilizacao" msprop:Generator_ColumnPropNameInTable="UtilizacaoColumn" msprop:Generator_UserColumnName="Utilizacao" type="xs:double" minOccurs="0" />
+              <xs:element name="CaminhoImagem" msprop:Generator_ColumnVarNameInTable="columnCaminhoImagem" msprop:Generator_ColumnPropNameInRow="CaminhoImagem" msprop:Generator_ColumnPropNameInTable="CaminhoImagemColumn" msprop:Generator_UserColumnName="CaminhoImagem">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_valor_indice" msprop:Generator_TableClassName="tb_valor_indiceDataTable" msprop:Generator_TableVarName="tabletb_valor_indice" msprop:Generator_RowChangedName="tb_valor_indiceRowChanged" msprop:Generator_TablePropName="tb_valor_indice" msprop:Generator_RowDeletingName="tb_valor_indiceRowDeleting" msprop:Generator_RowChangingName="tb_valor_indiceRowChanging" msprop:Generator_RowEvHandlerName="tb_valor_indiceRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_valor_indiceRowDeleted" msprop:Generator_RowClassName="tb_valor_indiceRow" msprop:Generator_UserTableName="tb_valor_indice" msprop:Generator_RowEvArgName="tb_valor_indiceRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idvalorindice" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidvalorindice" msprop:Generator_ColumnPropNameInRow="idvalorindice" msprop:Generator_ColumnPropNameInTable="idvalorindiceColumn" msprop:Generator_UserColumnName="idvalorindice" type="xs:int" />
+              <xs:element name="nmvalorindice" msprop:Generator_ColumnVarNameInTable="columnnmvalorindice" msprop:Generator_ColumnPropNameInRow="nmvalorindice" msprop:Generator_ColumnPropNameInTable="nmvalorindiceColumn" msprop:Generator_UserColumnName="nmvalorindice">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="iddocumento" msprop:Generator_ColumnVarNameInTable="columniddocumento" msprop:Generator_ColumnPropNameInRow="iddocumento" msprop:Generator_ColumnPropNameInTable="iddocumentoColumn" msprop:Generator_UserColumnName="iddocumento" type="xs:int" />
+              <xs:element name="idindice" msprop:Generator_ColumnVarNameInTable="columnidindice" msprop:Generator_ColumnPropNameInRow="idindice" msprop:Generator_ColumnPropNameInTable="idindiceColumn" msprop:Generator_UserColumnName="idindice" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tb_caixa" />
+      <xs:field xpath="mstns:idcaixa" />
+    </xs:unique>
+    <xs:unique name="tb_indice_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tb_indice" />
+      <xs:field xpath="mstns:idindice" />
+    </xs:unique>
+    <xs:unique name="tb_projeto_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tb_projeto" />
+      <xs:field xpath="mstns:idprojeto" />
+    </xs:unique>
+    <xs:unique name="tb_status_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tb_status" />
+      <xs:field xpath="mstns:idstatus" />
+    </xs:unique>
+    <xs:unique name="tb_tipo_documento_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tb_tipo_documento" />
+      <xs:field xpath="mstns:idtipodocumento" />
+    </xs:unique>
+    <xs:unique name="tb_tipo_processo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tb_tipo_processo" />
+      <xs:field xpath="mstns:idtipoprocesso" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_tb_tipo_documento_tb_tipo_processo" msdata:parent="tb_tipo_processo" msdata:child="tb_tipo_documento" msdata:parentkey="idtipoprocesso" msdata:childkey="idtipoprocesso" msprop:Generator_UserChildTable="tb_tipo_documento" msprop:Generator_ChildPropName="Gettb_tipo_documentoRows" msprop:Generator_UserRelationName="FK_tb_tipo_documento_tb_tipo_processo" msprop:Generator_ParentPropName="tb_tipo_processoRow" msprop:Generator_RelationVarName="relationFK_tb_tipo_documento_tb_tipo_processo" msprop:Generator_UserParentTable="tb_tipo_processo" />
+      <msdata:Relationship name="FK_tb_valor_indice_tb_indice" msdata:parent="tb_indice" msdata:child="tb_valor_indice" msdata:parentkey="idindice" msdata:childkey="idindice" msprop:Generator_UserChildTable="tb_valor_indice" msprop:Generator_ChildPropName="Gettb_valor_indiceRows" msprop:Generator_UserRelationName="FK_tb_valor_indice_tb_indice" msprop:Generator_RelationVarName="relationFK_tb_valor_indice_tb_indice" msprop:Generator_UserParentTable="tb_indice" msprop:Generator_ParentPropName="tb_indiceRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
